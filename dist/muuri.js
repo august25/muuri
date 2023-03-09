@@ -5970,6 +5970,19 @@
     }
 
     // Set item class.
+    const xlW = element.firstElementChild.getAttribute('data-xl-w');
+    const smW = element.firstElementChild.getAttribute('data-sm-w');
+    const xlHeight = element.firstElementChild.getAttribute('data-xl-height');
+    const smHeight = element.firstElementChild.getAttribute('data-sm-height');
+    
+    const xlWClass = `xl:w-${ xlW === '12' ? 'full' : xlW + '/12' }`;
+    const smWClass = `w-${ smW === '6' ? 'full' : smW + '/6' }`;
+    const xlHeightClass = `${ xlHeight }`;
+    const smHeightClass = `${ smHeight }`;
+    addClass(element, xlWClass);
+    addClass(element, smWClass);
+    addClass(element, xlHeightClass);
+    addClass(element, smHeightClass);
     addClass(element, settings.itemClass);
 
     // If isActive is not defined, let's try to auto-detect it. Note, we are
